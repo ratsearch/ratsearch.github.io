@@ -1,0 +1,1774 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+	</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK&display=swap" rel="stylesheet">
+	<style>
+		body {
+			font-family: sans-serif,'Noto Sans HK';
+		}
+		table {
+			border-collapse: collapse;
+		}
+		
+		td,
+		th {
+			border: 1px solid #dddddd;
+			text-align: left;
+			padding: 8px;
+		}
+		
+		h1 {
+			color: red;
+		}
+	</style>
+</head>
+
+<body>
+	<center>
+		<h1>快速抗原測試包 搜尋工具</h1>
+		<p><i>聲明：此搜尋器並非由任何官方機構開發，資料來源是以下列五份官方名單整合而成，所有資料僅供參考, 如有任何缺漏本網並不負責,請以官方發出資料為準。</i></p>
+		<p>資料來源: (最後更新日期: 2022-03-01)</p>
+		<table border="1">
+			<tbody>
+				<tr>
+					<td>HK (A)</td>
+					<td><a href="https://www.mdd.gov.hk/tc/whats-new/rapid-antigen-tests-covid-19/index.html">香港特別行政區衞生署醫療儀器行政管理制度下已表列的2019冠狀病毒病快速抗原測試</a></td>
+			</tr>
+			<tr>
+				<td>HK (B)</td>
+				<td><a href="https://www.coronavirus.gov.hk/rat/chi/kit_comparison.html">香港特別行政區政府向指定群組免費派發的快速抗原測試包</a></td>
+			</tr>
+			<tr>
+				<td>CN</td>
+				<td><a href="https://www.nmpa.gov.cn/directory/web/nmpa/images/1643248396260012059.docx">國家藥品監督管理局批准的新冠疫情防控醫療器械產品名單</a></td>
+			</tr>
+			<tr>
+				<td>EU</td>
+				<td><a href="https://ec.europa.eu/health/system/files/2022-02/covid-19_rat_common-list_en.pdf">歐盟2019冠狀病毒病快速抗原測試通用名單</a>（只備英文版本）</td>
+			</tr>
+			<tr>
+				<td>US</td>
+				<td><a href="https://www.fda.gov/medical-devices/coronavirus-disease-2019-covid-19-emergency-use-authorizations-medical-devices/in-vitro-diagnostics-euas-antigen-diagnostic-tests-sars-cov-2#IndividualEUAs">美國食品及藥物管理局發出有關認可緊急使用的抗原測試劑名單</a>（只備英文版本）</td>
+			</tr>
+			</tbody>
+		</table>
+		<p><br></p>
+		<b style="font-size:2rem">請輸入關鍵字:
+		<input id="keyword" type="text" size="20"
+				style="font-size:2rem" placeholder="產品名稱/製造商">
+		</b>
+		<br>
+		<br>
+		<table>
+			<tr>
+				<th><b>產品名稱</b></th>
+				<th><b>製造商</b></th>
+				<th><b>名單</b></th>
+			</tr>
+			<tbody id="RAT">
+				<tr>
+					<td>Panbio COVID-19 Antigen Self-Test</td>
+					<td>Abbott Rapid Diagnostics</td>
+					<td>HK (A)</td>
+				</tr>
+				<tr>
+					<td>AESKU.RAPID SARS-CoV-2</td>
+					<td>AESKU.Diagnostics</td>
+					<td>HK (A)</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Virus Antigen Detection Kit (colloidal gold method)</td>
+					<td>BGI</td>
+					<td>HK (A)</td>
+				</tr>
+				<tr>
+					<td>ALLTest SARS-CoV-2 Antigen Rapid Test (Nasal Swab)</td>
+					<td>Hangzhou AllTest Biotech</td>
+					<td>HK (A)</td>
+				</tr>
+				<tr>
+					<td>FIATest COVID-19 Antigen Test Cassette (Nasopharyngeal Swab)</td>
+					<td>Hangzhou AllTest Biotech</td>
+					<td>HK (A)</td>
+				</tr>
+				<tr>
+					<td>INDICAID COVID-19 Rapid Antigen Test</td>
+					<td>Phase Scientific</td>
+					<td>HK (A)</td>
+				</tr>
+				<tr>
+					<td>Roche SARS-CoV-2 Rapid Antigen Test Nasal</td>
+					<td>SD Biosensor</td>
+					<td>HK (A)</td>
+				</tr>
+				<tr>
+					<td>Roche SARS-CoV-2 Antigen Self Test Nasal</td>
+					<td>SD Biosensor</td>
+					<td>HK (A)</td>
+				</tr>
+				<tr>
+					<td>AESKU</td>
+					<td>AESKU.GROUP GmbH</td>
+					<td>HK (B)</td>
+				</tr>
+				<tr>
+					<td>BGI YHLO</td>
+					<td>深圳市亞輝龍生物科技股份有限公司</td>
+					<td>HK (B)</td>
+				</tr>
+				<tr>
+					<td>丹娜生物</td>
+					<td>丹娜（天津）生物科技股份有限公司</td>
+					<td>HK (B)</td>
+				</tr>
+				<tr>
+					<td>FlowFlex</td>
+					<td>ACON Laboratories, Inc.</td>
+					<td>HK (B)</td>
+				</tr>
+				<tr>
+					<td>和信</td>
+					<td>廣東和信健康科技有限公司</td>
+					<td>HK (B)</td>
+				</tr>
+				<tr>
+					<td>熱境生物</td>
+					<td>北京熱景生物技術股份有限公司</td>
+					<td>HK (B)</td>
+				</tr>
+				<tr>
+					<td>妥析</td>
+					<td>相達生物科技國際有限公司</td>
+					<td>HK (B)</td>
+				</tr>
+				<tr>
+					<td>金沃夫</td>
+					<td>北京金沃夫生物工程科技有限公司</td>
+					<td>HK (B)</td>
+				</tr>
+				<tr>
+					<td>Panbio</td>
+					<td>Abbott Rapid Diagnostics</td>
+					<td>HK (B)</td>
+				</tr>
+				<tr>
+					<td>萬孚</td>
+					<td>廣州萬孚生物技術股份有限公司</td>
+					<td>HK (B)</td>
+				</tr>
+				<tr>
+					<td>BGI YHLO</td>
+					<td>Shenzhen YHLO Biotech Co., Ltd</td>
+					<td>HK (B)</td>
+				</tr>
+				<tr>
+					<td>Dynamiker</td>
+					<td>Dynamiker Biotechnology (Tianjin) Co., Ltd.</td>
+					<td>HK (B)</td>
+				</tr>
+				<tr>
+					<td>FlowFlex</td>
+					<td>ACON Laboratories, Inc.</td>
+					<td>HK (B)</td>
+				</tr>
+				<tr>
+					<td>Hecin</td>
+					<td>Guangdong Hecin Scientific, Inc.</td>
+					<td>HK (B)</td>
+				</tr>
+				<tr>
+					<td>Hotgen</td>
+					<td>Beijing Hotgen Biotech Co., Ltd</td>
+					<td>HK (B)</td>
+				</tr>
+				<tr>
+					<td>Indicaid</td>
+					<td>PHASE Scientific International Ltd</td>
+					<td>HK (B)</td>
+				</tr>
+				<tr>
+					<td>Jinwofu</td>
+					<td>Jinwofu Bioengineering Technology Co., Ltd.</td>
+					<td>HK (B)</td>
+				</tr>
+				<tr>
+					<td>Wondfo</td>
+					<td>Guangzhou Wondfo Biotech Co., Ltd.</td>
+					<td>HK (B)</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒2019-nCoV核酸检测试剂盒（荧光PCR法）</td>
+					<td>上海之江生物科技股份有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒2019-nCoV核酸检测试剂盒（荧光PCR法）</td>
+					<td>上海捷诺生物科技有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒2019-nCoV核酸检测试剂盒（联合探针锚定聚合测序法）</td>
+					<td>华大生物科技（武汉）有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒2019-nCoV核酸检测试剂盒（荧光PCR法）</td>
+					<td>华大生物科技（武汉）有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒2019-nCoV核酸检测试剂盒（荧光PCR法）</td>
+					<td>中山大学达安基因股份有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒2019-nCoV核酸检测试剂盒（荧光PCR法）</td>
+					<td>圣湘生物科技股份有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒2019-nCoV核酸检测试剂盒（荧光PCR法）</td>
+					<td>上海伯杰医疗科技有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒（2019-nCoV）抗体检测试剂盒（胶体金法）</td>
+					<td>广州万孚生物技术股份有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒（2019-nCoV）IgM/IgG抗体检测试剂盒（胶体金法）</td>
+					<td>英诺特（唐山）生物技术有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>六项呼吸道病毒核酸检测试剂盒（恒温扩增芯片法）</td>
+					<td>成都博奥晶芯生物科技有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒2019-nCoV核酸检测试剂盒（荧光PCR法）</td>
+					<td>北京卓诚惠生生物科技股份有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒（2019-nCoV）IgM抗体检测试剂盒（磁微粒化学发光法）</td>
+					<td>博奥赛斯（重庆）生物科技有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒（2019-nCoV）IgG抗体检测试剂盒（磁微粒化学发光法）</td>
+					<td>博奥赛斯（重庆）生物科技有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒2019-nCoV核酸检测试剂盒（荧光PCR法）</td>
+					<td>迈克生物股份有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒（2019-nCoV）抗体检测试剂盒（磁微粒化学发光法）</td>
+					<td>厦门万泰凯瑞生物技术有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒（2019-nCoV）IgM抗体检测试剂盒（胶体金法）</td>
+					<td>广东和信健康科技有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒2019-nCoV核酸检测试剂盒（荧光PCR法）</td>
+					<td>武汉明德生物科技股份有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒（2019-nCoV）IgM/IgG抗体检测试剂盒（胶体金法）</td>
+					<td>南京诺唯赞医疗科技有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒（2019-nCoV）IgM/IgG抗体检测试剂盒（胶体金法）</td>
+					<td>珠海丽珠试剂股份有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒2019-nCoV核酸检测试剂盒（恒温扩增-实时荧光法）</td>
+					<td>杭州优思达生物技术有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒2019-nCoV核酸检测试剂盒（杂交捕获免疫荧光法）</td>
+					<td>安邦（厦门）生物科技有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒（2019-nCoV）核酸检测试剂盒（荧光PCR法）</td>
+					<td>上海复星长征医学科学有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒2019-nCoV核酸检测试剂盒（RNA捕获探针法）</td>
+					<td>上海仁度生物科技有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒2019-nCoV核酸检测试剂盒（RNA恒温扩增-金探针层析法）</td>
+					<td>武汉中帜生物科技股份有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒2019-nCoV核酸检测试剂盒（双扩增法）</td>
+					<td>武汉中帜生物科技股份有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒2019-nCoV核酸检测试剂盒（荧光PCR法）</td>
+					<td>北京金豪制药股份有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒（2019-nCoV）IgG抗体检测试剂盒（磁微粒化学发光法）</td>
+					<td>丹娜（天津）生物科技有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒（2019-nCoV）IgM抗体检测试剂盒（磁微粒化学发光法）</td>
+					<td>丹娜（天津）生物科技有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒(2019-nCoV)抗体检测试剂盒（胶体金法）</td>
+					<td>上海芯超生物科技有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒2019-nCoV核酸检测试剂盒（荧光PCR法）</td>
+					<td>江苏硕世生物科技股份有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒（2019-nCoV）IgM抗体检测试剂盒（胶体金法）</td>
+					<td>北京新兴四寰生物技术有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒（2019-nCoV）IgM抗体检测试剂盒（磁微粒化学发光法）</td>
+					<td>郑州安图生物工程股份有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒（2019-nCoV）IgG抗体检测试剂盒（磁微粒化学发光法）</td>
+					<td>郑州安图生物工程股份有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒（2019-nCoV）IgM抗体检测试剂盒（直接化学发光法）</td>
+					<td>迈克生物股份有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒（2019-nCoV）IgG抗体检测试剂盒（直接化学发光法）</td>
+					<td>迈克生物股份有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒（2019-nCoV）IgG抗体检测试剂盒（化学发光法）</td>
+					<td>博奥赛斯（天津）生物科技有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒（2019-nCoV）IgM抗体检测试剂盒（化学发光法）</td>
+					<td>博奥赛斯（天津）生物科技有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒2019-nCoV核酸检测试剂盒（荧光PCR法）</td>
+					<td>浙江东方基因生物制品股份有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒（2019-nCoV）抗体检测试剂盒（上转发光免疫层析法）</td>
+					<td>北京热景生物技术股份有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒2019-nCoV核酸检测试剂盒（荧光PCR法）</td>
+					<td>深圳联合医学科技有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒（2019-nCoV）IgM/IgG抗体检测试剂盒（量子点荧光免疫法）</td>
+					<td>北京金豪制药股份有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒2019-nCoV核酸检测试剂盒（荧光PCR法）</td>
+					<td>北京纳捷诊断试剂有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒（2019-nCoV）IgM/IgG抗体检测试剂盒（酶联免疫法）</td>
+					<td>北京华大吉比爱生物技术有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒2019-nCoV核酸检测试剂盒（荧光PCR法）</td>
+					<td>卡尤迪生物科技宜兴有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒2019-nCoV核酸检测试剂盒（荧光PCR法）</td>
+					<td>中山大学达安基因股份有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒（2019-nCoV）IgM抗体检测试剂盒（磁微粒化学发光法）</td>
+					<td>深圳市亚辉龙生物科技股份有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒（2019-nCoV）IgG抗体检测试剂盒（磁微粒化学发光法）</td>
+					<td>深圳市亚辉龙生物科技股份有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒（2019-nCoV）IgM/IgG抗体检测试剂盒（稀土纳米荧光免疫层析法）</td>
+					<td>厦门奥德生物科技有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒（2019-nCoV）IgG抗体检测试剂盒（胶体金法）</td>
+					<td>北京新兴四寰生物技术有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒（2019-nCoV）抗原检测试剂盒（胶体金法）</td>
+					<td>广州万孚生物技术股份有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒（2019-nCoV）抗原检测试剂盒（乳胶法）</td>
+					<td>北京金沃夫生物工程科技有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒（2019-nCoV）核酸检测试剂盒（CRISPER免疫层析法）</td>
+					<td>杭州众测生物科技有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒（2019-nCoV）IgM/IgG抗体检测试剂盒（胶体金法）</td>
+					<td>浙江东方基因生物制品股份有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒（2019-nCoV）抗原检测试剂盒（荧光免疫层析法）</td>
+					<td>深圳华大因源医药科技有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒(2019-nCoV) IgM抗体检测试剂盒(酶联免疫法)</td>
+					<td>珠海丽珠试剂股份有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒2019-nCoV核酸检测试剂盒( 全集成碟式芯片法)</td>
+					<td>成都博奥晶芯生物科技有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒2019-nCoV核酸检测试剂盒(荧光PCR法)</td>
+					<td>杭州迪安生物技术有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒2019-nCoV核酸检测试剂盒（荧光PCR法）</td>
+					<td>重庆中元汇吉生物技术有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒2019-nCoV核酸检测试剂盒（荧光PCR法）</td>
+					<td>潮州凯普生物化学有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒2019-nCoV核酸检测试剂盒（PCR-荧光探针法）</td>
+					<td>郑州安图生物工程股份有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒(2019-nCoV)IgM/IgG抗体检测试剂盒(胶体金法)</td>
+					<td>艾维可生物科技有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒（2019-nCoV）IgM/IgG抗体检测试剂盒（免疫层析法）</td>
+					<td>山东康华生物医疗科技股份有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒2019-nCoV和甲型乙型流感病毒核酸联合检测试剂盒（荧光PCR法）</td>
+					<td>上海思路迪生物医学科技有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒（2019-nCoV）核酸检测试剂盒（荧光RT-RAA法）</td>
+					<td>江苏奇天基因生物科技有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒2019-nCoV核酸检测试剂盒（恒温CRISPER法）</td>
+					<td>上海伯杰医疗科技有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒（2019-nCoV）IgM抗体检测试剂盒（化学发光法）</td>
+					<td>深圳市新产业生物医学工程股份有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒（2019-nCoV）IgG抗体检测试剂盒（化学发光法）</td>
+					<td>深圳市新产业生物医学工程股份有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>新型冠状病毒2019-nCoV、甲型流感病毒、乙型流感病毒检测试剂盒（荧光PCR法）</td>
+					<td>圣湘生物科技股份有限公司</td>
+					<td>CN</td>
+				</tr>
+				<tr>
+					<td>COVID-VIRO</td>
+					<td>AAZ-LMB</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Panbio Covid-19 Ag Rapid Test</td>
+					<td>Abbott Rapid Diagnostics</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Cora Gentest-19</td>
+					<td>Abioteq GmbH</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Accu-Tell SARS-CoV-2 Ag Cassette</td>
+					<td>AccuBioTech Co.,Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Flowflex SARS-CoV-2 Antigen Rapid Test</td>
+					<td>Acon Biotech (Hangzhou) Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Flowflex SARS-CoV-2 Antigen Rapid Test (Nasal/Saliva)</td>
+					<td>Acon Biotech (Hangzhou) Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Flowflex SARS-CoV-2 Antigen rapid test</td>
+					<td>ACON Laboratories, Inc</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>AESKU.RAPID SARS-CoV-2</td>
+					<td>AESKU.DIAGNOSTICS GmbH & Co. KG</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>TestNOW® - COVID-19 Antigen Test</td>
+					<td>Affimedix, Inc.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>AMP Rapid Test SARS-CoV-2 Ag</td>
+					<td>AMEDA Labordiagnostik GmbH</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Rapid COVID-19 Antigen Test (Colloidal Gold)</td>
+					<td>Anbio (Xiamen) Biotechnology Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>COVID-19 (SARS-CoV-2) Antigen Test Kit (Colloidal Gold) - Nasal Swab</td>
+					<td>Anhui Deep Blue Medical Technology Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>COVID-19 (SARS-CoV-2) Antigen Test Kit(Colloidal Gold)</td>
+					<td>Anhui Deep Blue Medical Technology Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>New Coronavirus (COVID-19) Antigen Rapid Test</td>
+					<td>Anhui Formaster Biosci Co., Ltd.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>mariPOC Quick Flu+</td>
+					<td>ArcDia International Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>mariPOC Respi+</td>
+					<td>ArcDia International Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>mariPOC SARS-CoV-2</td>
+					<td>ArcDia International Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Artron COVID-19 Antigen Test</td>
+					<td>Artron Laboratories Inc</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Asan Easy Test COVID-19 Ag</td>
+					<td>Asan Pharmaceutical CO., LTD</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>ECOTEST COVID-19 Antigen Rapid Test Device</td>
+					<td>Assure Tech. (Hangzhou) Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>ECOTEST COVID-19 Antigen Rapid Test Device</td>
+					<td>Assure Tech. (Hangzhou) Co., Ltd.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Ksmart® SARS-COV2 Antigen Rapid Test</td>
+					<td>AVALUN SAS</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>COVID-19 Antigen Rapid Test Card</td>
+					<td>AXIOM Gesellschaft für Diagnostica und Biochemica mbH</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>BD Kit For Rapid Detection of SARS-CoV-2</td>
+					<td>Becton Dickinson</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>BD Veritor™ System for Rapid Detection of SARS CoV 2</td>
+					<td>Becton Dickinson</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Novel Coronavirus 2019-nCoV Antigen Test (Colloidal Gold)</td>
+					<td>Beijing Hotgen Biotech Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Coronavirus (2019-nCoV)-Antigentest</td>
+					<td>Beijing Hotgen Biotech Co., Ltd.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Novel Coronavirus (SARS-CoV-2) Antigen Rapid Test Kit</td>
+					<td>Beijing Jinwofu Bioengineering Technology Co.,Ltd.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>COVID19 Antigen Rapid Test Kit</td>
+					<td>Beijing Kewei Clinical Diagnostic Reagent Inc</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Antigen Rapid Test Kit (Colloidal Gold Immunochromatography)</td>
+					<td>Beijing Lepu Medical Technology Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>COVID-19 Antigen Rapid Test</td>
+					<td>Beijing O&D Biotech Co., Ltd.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>WANTAI SARS-CoV-2 Ag Rapid Test (Colloidal Gold)</td>
+					<td>Beijing Wantai Biological Pharmacy Enterprise Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Coronavirus Ag Rapid Test Cassette (Swab)</td>
+					<td>Bio-Rad Laboratories / Zhejiang Orient Gene Biotech</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>CoviGnost AG Test Device 1x20</td>
+					<td>BioGnost Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Antigen Rapid Test Kit (Fluorescence Immunochromatography)</td>
+					<td>BIOHIT HealthCare (Hefei) Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Antigen Rapid Test (Colloidal Gold Method)</td>
+					<td>Biohit Healthcare (Hefei) Co.,Ltd.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Ag Rapid Test</td>
+					<td>BioMaxima SA</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Biomerica COVID-19 Antigen Rapid Test (nasopharyngeal swab)</td>
+					<td>Biomerica, Inc.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>NowCheck COVID-19 Ag Test</td>
+					<td>Bionote, Inc</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>COVID19Speed-Antigen Test BSD_0503</td>
+					<td>BioSpeedia International</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>BIOSYNEX COVID-19 Ag BSS</td>
+					<td>BIOSYNEX S.A.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>BIOSYNEX COVID-19 Ag+ BSS</td>
+					<td>BIOSYNEX S.A.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Antigen Test Kit (colloidal gold method)</td>
+					<td>BIOTEKE CORPORATION (WUXI) CO., LTD</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>biotical SARS-CoV-2 Ag Card</td>
+					<td>Biotical Health S.L.U.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>AFIAS COVID-19 Ag</td>
+					<td>Boditech Med Inc</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Rapid Response COVID-19 Antigen Rapid Test</td>
+					<td>BTNX Inc</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>CerTest SARS-CoV-2 Card test</td>
+					<td>CerTest Biotec</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>CHECK UP SARS-COV-2 NASAL ANTIGEN RAPID TEST</td>
+					<td>Cesna Biyoteknoloji Araştırma Geliştirme Laboratuvar Sist.İnş.Müh.Dan.San.Tic.Ltd.Şti.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>CHECK UP SARS-COV-2 NASOPHARYNGEAL ANTIGEN TEST</td>
+					<td>Cesna Biyoteknoloji Araştırma Geliştirme Laboratuvar Sist.İnş.Müh.Dan.San.Tic.Ltd.Şti.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>CHIL COVID-19 Antigen Rapid Test (Nasopharyngeal / Oropharyngeal Swab-Casette)</td>
+					<td>Chil Tıbbi Malzeme Sanayi ve Ticaret Limited Şirketi</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>2019-nCoV Antigen Test Kit</td>
+					<td>Chongqing M&D Biotechnology Co. Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Coretests COVID-19 Ag Test</td>
+					<td>Core Technology Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>OnSite COVID-19 Ag Rapid Test</td>
+					<td>CTK Biotech, Inc</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Test Rapid Covid-19 Antigen (tampon nazofaringian)</td>
+					<td>DDS DIAGNOSTIC</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>LIAISON® SARS-CoV-2 Ag</td>
+					<td>DiaSorin S.p.A</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>COVID-19 Antigen Detection Kit</td>
+					<td>DNA Diagnostic</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Antigen Rapid Test</td>
+					<td>DNA Diagnostic</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Dräger Antigen Test SARS-CoV-2</td>
+					<td>Dräger Safety AG & Co. KGaA</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Dynamiker SARS-CoV-2 Ag Rapid Test</td>
+					<td>Dynamiker Biotechnology（Tianjin) Co., Ltd.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>ActivXpress+ COVID-19 Antigen Complete Testing Kit</td>
+					<td>Edinburgh Genetics Limited</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>EBS SARS-CoV-2 Ag Rapid Test</td>
+					<td>Eurobio Scientific</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>ESPLINE SARS-CoV-2</td>
+					<td>Fujirebio</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>GA CoV-2 Antigen Rapid Test</td>
+					<td>GA Generic Assays GmbH</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Virusee® SARS-CoV-2 Antigen Rapid Test (Colloidal Gold)</td>
+					<td>Genobio Pharmaceutical Co., Ltd.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Antigen Test Kit (Colloidal Gold)</td>
+					<td>Genrui Biotech Inc</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>GenSure COVID-19 Antigen Rapid Kit</td>
+					<td>GenSure Biotech Inc</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>GenSure COVID-19 Antigen Rapid Test Kit</td>
+					<td>GenSure Biotech Inc</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Antigen (Colloidal Gold)</td>
+					<td>Getein Biotech, Inc</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>One Step Test for SARS-CoV-2 Antigen (Colloidal Gold)</td>
+					<td>Getein Biotech, Inc.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Novel Coronavirus (2019-nCoV) Antigen Test Kit (Colloidal gold immunochromatography)</td>
+					<td>Glallergen CO., LTD.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Antigen Kit (Colloidal Gold)</td>
+					<td>Goldsite Diagnostics Inc</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>GENEDIA W COVID-19 Ag</td>
+					<td>Green Cross Medical Science Corp.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>2019-nCoV Antigen Test Kit (colloidal gold method)</td>
+					<td>Guangdong Hecin Scientific, Inc.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>2019-nCoV Ag Rapid Detection Kit (Immuno-Chromatography)</td>
+					<td>Guangdong Longsee Biomedical Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>COVID-19 Ag Test Kit</td>
+					<td>Guangdong Wesail Biotech Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Wondfo 2019-nCoV Antigen Test (Lateral Flow Method)</td>
+					<td>Guangzhou Wondfo Biotech Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Antigen Rapid Test (COVID-19 Antigen Rapid Test) (Swab)</td>
+					<td>Hangzhou AllTest Biotech Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>COVID-19 Antigen Rapid Test Cassette(Nasal Swab)</td>
+					<td>Hangzhou Biotest Biotech Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>COVID-19 Antigen Rapid Test Cassette</td>
+					<td>Hangzhou Clongene Biotech Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Covid-19 Antigen Rapid Test Kit</td>
+					<td>Hangzhou Clongene Biotech Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>COVID-19/Influenza A+B Antigen Combo Rapid Test</td>
+					<td>Hangzhou Clongene Biotech Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>COVID-19 Antigen Test Cassette</td>
+					<td>Hangzhou DIAN Biotechnology Co., Ltd.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Immunobio SARS-CoV-2 Antigen ANTERIOR NASAL Rapid Test Kit (minimal invasive)</td>
+					<td>Hangzhou Immuno Biotech Co.,Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Antigen Rapid Test</td>
+					<td>Hangzhou Immuno Biotech Co.,Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>LYHER Novel Coronavirus (COVID-19) Antigen Test Kit(Colloidal Gold)</td>
+					<td>Hangzhou Laihe Biotech Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>COVID-19 Antigen Rapid Test Device（Colloidal Gold）</td>
+					<td>HANGZHOU LYSUN BIOTECHNOLOGY CO., LTD.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Antigen Rapid Test Cassette</td>
+					<td>Hangzhou Sejoy Electronics&Instruments Co.,LTD.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>COVID-19 Antigen Test Cassette</td>
+					<td>Hangzhou Testsea Biotechnology Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Coronavirus Ag Rapid Test Cassette</td>
+					<td>Healgen Scientific</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Corona Virus (COVID-19) Antigen Rapid Test (Colloidal Gold)</td>
+					<td>Hoyotek Biomedical Co.,Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Antigen Test Kit</td>
+					<td>Hubei Jinjian Biology Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Humasis COVID-19 Ag Test</td>
+					<td>Humasis Co., Ltd.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Covid-19 Antigen Schnelltest (Colloidales Gold)</td>
+					<td>IEDAU INTERNATIONAL GMBH</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Innova SARS CoV-2 Antigen Rapid Qualitative Test</td>
+					<td>Innova Medical Group, Inc.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Novel Coronavirus (SARS-Cov-2) Antigen Rapid Test Cassette (swab)</td>
+					<td>Innovation Biotech (Beijing) Co.,ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Rapid SARS-CoV-2 Antigen Test (nasopharyngeal specimen)</td>
+					<td>InTec PRODUCTS, INC.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Novel Corona Virus (SARS-CoV-2) Ag Rapid Test Kit</td>
+					<td>Jiangsu Bioperfectus Technologies Co., Ltd.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>COVID-19 Antigen Rapid Test Cassette (Colloidal Gold)</td>
+					<td>Jiangsu Diagnostics Biotechnology Co.,Ltd.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>COVID-19 Antigen Rapid Test Kit (Colloidal Gold)</td>
+					<td>Jiangsu Konsung Bio-Medical Science And Technology Co., Ltd.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 antigen Test Kit (LFIA)</td>
+					<td>Jiangsu Medomics medical technology Co.,Ltd.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Antigen Test Cassette</td>
+					<td>Jiangsu Mole Bioscience CO., LTD.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>COVID-19 Ag Rapid Test Device</td>
+					<td>Jiangsu Well Biotech Co., Ltd.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Antigen Rapid Detection Kit (Colloidal Gold Method)</td>
+					<td>JINAN BABIO BIOTECHNOLOGY CO., LTD.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>COVID-19 Rapid Antigen Test (Colloidal Gold)</td>
+					<td>Joinstar Biomedical Technology Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Antigen Rapid Test Kit (Colloidal Gold)</td>
+					<td>JOYSBIO (Tianjin) Biotechnology Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Antigen Rapid Test Kit</td>
+					<td>Labnovation Technologies Inc</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Covid-19 Antigen Test Kit (Colloidal Gold)</td>
+					<td>Linkcare Health Services (Diagnos BT)</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>PocRoc®SARS-CoV-2 Antigen Rapid Test Kit (Colloidal Gold)</td>
+					<td>Lumigenex (Suzhou) Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>QuickProfile COVID-19 Antigen Test</td>
+					<td>LumiQuick Diagnostics Inc</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>LumiraDx SARS-CoV-2 Ag Test</td>
+					<td>LumiraDX</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>MEDsan SARS-CoV-2 Antigen Rapid Test</td>
+					<td>MEDsan GmbH</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Antigen Rapid Test Cassette</td>
+					<td>Merlin Biomedical (Xiamen) Co., Ltd.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>MEXACARE COVID-19 Antigen Rapid Test</td>
+					<td>MEXACARE GmbH</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>mö-screen Corona Antigen Test</td>
+					<td>möLab</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>COVIOS Ag COVID-19 Antigen Rapid Diagnostic Test</td>
+					<td>Mologic Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Rapid SARS-CoV-2 Antigen Test Card</td>
+					<td>MP Biomedicals</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Covid19Check-NAS</td>
+					<td>Multi-G bvba</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>NADAL COVID-19 Ag + Influenza A/B Test</td>
+					<td>Nal von minden GmbH</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>NADAL COVID-19 Ag Test</td>
+					<td>Nal von minden GmbH</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>StrongStep® SARS-CoV-2 Antigen Rapid Test</td>
+					<td>Nanjing Liming Bio-Products Co., Ltd.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Novel Coronavirus (2019-nCoV) Antigen Testing Kit (Colloidal Gold)</td>
+					<td>Nanjing Norman Biological Technology Co.,Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-COV-2 Nucleocapsid (N) Antigen Rapid Detection Kit (Colloidal gold method)</td>
+					<td>Nanjing Synthgene Medical Technology Co., Ltd.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>FREND COVID-19 Ag</td>
+					<td>NanoEntek</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>NanoRepro SARS-CoV-2 Antigen Rapid Test</td>
+					<td>NanoRepro AG</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>COVID-19 Antigen Rapid Test Kit</td>
+					<td>Nantong Egens Biotechnology Co.,Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>COVID 19 Antigen Test Kit (Colloidal Gold Method)</td>
+					<td>Neo-nostics (Suzhou) Bioengineering Co., Ltd.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>MARESKIT</td>
+					<td>NESAPOR EUROPA SL</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>COVID-19 Antigen Detection Kit</td>
+					<td>New Gene (Hangzhou) Bioengineering Co., Ltd.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Ninonasal</td>
+					<td>NG Biotech</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS CoV-2 Antigen Rapid Test</td>
+					<td>Novatech</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>CAT</td>
+					<td>Oncosem Onkolojik Sistemler San. ve Tic. A.S.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>VITROS Immunodiagnostic Products SARS-CoV-2 Antigen</td>
+					<td>Ortho Clinical Diagnostics</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>GeneFinder COVID-19 Ag Plus Rapid Test</td>
+					<td>OSANG Healthcare Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Pantest Coronavirus Ag (Nasopharyngeal Swab)</td>
+					<td>Pantest SA</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>PCL COVID19 Ag Rapid FIA</td>
+					<td>PCL Inc</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>PCL COVID19 Ag Gold</td>
+					<td>PCL Inc.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Antigen Detection Kit (Colloidal Gold Immunochromatographic Assay)</td>
+					<td>PerGrande BioTech Development Co., Ltd.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Exdia COVID-19 Ag</td>
+					<td>Precision Biosensor, Inc</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Rapid Test Ag 2019-nCov</td>
+					<td>Prognosis Biotech</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Antigen Rapid Test</td>
+					<td>Qingdao Hightop Biotech Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2/Flu A+B/RSV Antigen Rapid Test</td>
+					<td>Qingdao Hightop Biotech Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Sofia SARS Antigen FIA</td>
+					<td>Quidel Corporation</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>LIAISON® Quick Detect Covid Ag Assay</td>
+					<td>Rapid Pathogen Screening, Inc.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Rapid Antigen Test</td>
+					<td>Roche (SD BIOSENSOR)</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Rapid Antigen Test Nasal</td>
+					<td>Roche (SD BIOSENSOR)</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Elecsys® SARS-CoV-2 Antigen</td>
+					<td>ROCHE Diagnostics</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>COVID-19 Antigen Rapid Test Kit (Swab)</td>
+					<td>Safecare Biotech (Hangzhou) Co. Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Multi-Respiratory Virus Antigen Test Kit(Swab) (Influenza A+B/ COVID-19)</td>
+					<td>Safecare Biotech (Hangzhou) Co. Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Rapid Antigen Test (Colloidal Gold Method)</td>
+					<td>Sansure Biotech Inc.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>ScheBo SARS CoV-2 Quick ANTIGEN (Colloidal Gold Method)</td>
+					<td>ScheBo Biotech</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>ScheBo SARS CoV-2 Quick Antigen</td>
+					<td>ScheBo Biotech AG</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>STANDARD F COVID-19 Ag FIA</td>
+					<td>SD BIOSENSOR Inc</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>STANDARD Q COVID-19 Ag Test</td>
+					<td>SD BIOSENSOR Inc</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>STANDARD Q COVID-19 Ag Test Nasal</td>
+					<td>SD BIOSENSOR Inc</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>V-Chek SARS-CoV-2 Ag Rapid Test Kit (Colloidal Gold)</td>
+					<td>SGA Medikal</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>V-Chek SARS-CoV-2 Rapid Ag Test (colloidal gold)</td>
+					<td>SGA Medikal</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Antigen Rapid Detection Kit</td>
+					<td>Shenzhen CAS-Envision Medical Technology Co., Ltd.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Sars-CoV-2 antigen test kit (colloidal gold)</td>
+					<td>Shenzhen Dymind Biotechnology Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Antigen Test Kit (Colloidal Gold)</td>
+					<td>Shenzhen Huian Biosci Technology Co., Ltd.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Antigen Test Kit (GICA)</td>
+					<td>Shenzhen Kisshealth Biotechnology Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Green Spring SARS-CoV-2 Antigen-Rapid test-Set</td>
+					<td>Shenzhen Lvshiyuan Biotechnology Co., Ltd.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Antigen Test Kit (Colloidal Gold Chromatographic Immunoassay)</td>
+					<td>Shenzhen Microprofit Biotech Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Spike Protein Test Kit (Colloidal Gold Chromatographic Immunoassay)</td>
+					<td>Shenzhen Microprofit Biotech Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Spike Protein Test Kit (Fluorescence Immunoassay)</td>
+					<td>Shenzhen Microprofit Biotech Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 antigen IVD kit SWAB</td>
+					<td>Shenzhen Reagent Technology Co.,Ltd.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Antigen Test Kit</td>
+					<td>Shenzhen Ultra-Diagnostics Biotec.Co.,Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Ag Diagnostic Test Kit (Colloidal Gold)</td>
+					<td>Shenzhen Watmind Medical Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Ag Diagnostic Test Kit (Immuno-fluorescence)</td>
+					<td>Shenzhen Watmind Medical Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>GLINE-2019-nCoV Ag</td>
+					<td>SHENZHEN YHLO BIOTECH CO., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Zhenrui ®COVID-19 Antigen Test Cassette</td>
+					<td>Shenzhen Zhenrui Biotechnology Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>CLINITEST Rapid Covid-19 Antigen Test</td>
+					<td>Siemens Healthineers</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Redtest Professional Sars-CoV-2 Antigen Rapid Test (Covid-19 Ag)</td>
+					<td>Sigmed Sp. z o.o.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SGTi-flex COVID-19 Ag</td>
+					<td>Sugentech, Inc</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Rapid Antigen Test Cassette</td>
+					<td>SureScreen Diagnostics</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>COVID-19 Antigen Test Kit</td>
+					<td>Surge Medical Inc.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>TODA CORONADIAG Ag</td>
+					<td>TODA PHARMA</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Antigen Rapid Test Kit</td>
+					<td>Triplex International Biosciences (China) Co., LTD.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Antigen Rapid Test Kit</td>
+					<td>Triplex International Biosciences Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>INFO Covid-19 Ag Test</td>
+					<td>Türklab Tibbi Mal. San. ve Tic. A.S.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>RAPIDAN TESTER Covid-19 Ag Test</td>
+					<td>Türklab Tibbi Mal. San. ve Tic. A.S.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>TEST IT Covid-19 Ag Test</td>
+					<td>Türklab Tibbi Mal. San. ve Tic. A.S.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>TOYO Covid-19 Ag Test</td>
+					<td>Türklab Tibbi Mal. San. ve Tic. A.S.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>RapidFor SARS-CoV-2 Rapid Ag Test</td>
+					<td>Vitrosens Biotechnology Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Verino Pro SARS CoV 2 Ag Rapid Test</td>
+					<td>VivaChek Biotech (Hangzhou) Co., Ltd.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>COVID-19 (SARS-CoV-2) Antigen Test Kit</td>
+					<td>Wuhan EasyDiagnosis Biomedicine Co., Ltd.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>The SARS-CoV-2 Antigen Assay Kit (Immunochromatography)</td>
+					<td>Wuhan Life Origin Biotech Joint Stock Co., Ltd.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Antigen Rapid Test Kit</td>
+					<td>Wuhan UNscience Biotechnology Co., Ltd.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Antigen Test Kit（Lateral Flow Assay）</td>
+					<td>Wuxi Biohermes Bio & Medical Technology Co., Ltd.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>COVID-19 Antigen Rapid Test Kit (Colloidal Gold)</td>
+					<td>Xiamen AmonMed Biotechnology Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Rapid SARS-CoV-2 Antigen Test Card</td>
+					<td>Xiamen Boson Biotech Co. Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Antigen Rapid Test</td>
+					<td>Xiamen Wiz Biotech Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>SARS-CoV-2 Antigen Rapid Test (Colloidal Gold)</td>
+					<td>Xiamen Wiz Biotech Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Andlucky™ COVID-19 Antigen Rapid Test</td>
+					<td>Zhejiang Anji Saianfu Biotech Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>reOpenTest COVID-19 Antigen Rapid Test</td>
+					<td>Zhejiang Anji Saianfu Biotech Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Novel Coronavirus (COVID-19) Antigen Detection Kit</td>
+					<td>Zhejiang Gene Science Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>Coronavirus Ag Rapid Test Cassette (Swab)</td>
+					<td>Zhejiang Orient Gene Biotech Co.,Ltd.</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>ENCODE SARS-COV-2 Antigen rapid Test Device</td>
+					<td>Zhuhai Encode Medical Engineering Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>COVID-19 Antigen Detection Kit (Colloidal Gold)</td>
+					<td>Zhuhai Lituo Biotechnology Co., Ltd</td>
+					<td>EU</td>
+				</tr>
+				<tr>
+					<td>BinaxNOW COVID-19 Ag Card</td>
+					<td>Abbott Diagnostics Scarborough, Inc.</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>BinaxNOW COVID-19 Ag Card Home Test</td>
+					<td>Abbott Diagnostics Scarborough, Inc.</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>BinaxNOW COVID-19 Ag 2 Card</td>
+					<td>Abbott Diagnostics Scarborough, Inc.</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>BinaxNOW COVID-19 Antigen Self Test</td>
+					<td>Abbott Diagnostics Scarborough, Inc.</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>CareStart COVID-19 Antigen Home Test</td>
+					<td>Access Bio, Inc.</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>CareStart COVID-19 Antigen test</td>
+					<td>Access Bio, Inc.</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>Flowflex COVID-19 Antigen Home Test</td>
+					<td>ACON Laboratories, Inc</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>NIDS COVID-19 Antigen Rapid Test Kit09/24/2021</td>
+					<td>ANP Technologies, Inc</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>BD Veritor System for Rapid Detection of SARS-CoV-2</td>
+					<td>Becton, Dickinson and Company (BD)</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>BD Veritor At-Home COVID-19 Test</td>
+					<td>Becton, Dickinson and Company (BD)</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>BD Veritor System for Rapid Detection of SARS-CoV-2 & Flu A+B</td>
+					<td>Becton, Dickinson and Company (BD)</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>Celltrion DiaTrust COVID-19 Ag Home Test</td>
+					<td>Celltrion USA, Inc.</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>Celltrion DiaTrust COVID-19 Ag Rapid Test</td>
+					<td>Celltrion USA, Inc.</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>Sampinute COVID-19 Antigen MIA</td>
+					<td>Celltrion USA, Inc.</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>LIAISON SARS-CoV-2 Ag</td>
+					<td>DiaSorin, Inc.</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>ellume.lab COVID Antigen Test</td>
+					<td>Ellume Limited</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>Ellume COVID-19 Home Test</td>
+					<td>Ellume Limited</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>GenBody COVID-19 Ag</td>
+					<td>GenBody Inc.</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>iHealth COVID-19 Antigen Rapid Test Pro</td>
+					<td>iHealth Labs, Inc.</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>iHealth COVID-19 Antigen Rapid Test</td>
+					<td>iHealth Labs,Inc.</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>SCoV-2 Ag Detect Rapid Self-Test</td>
+					<td>InBios International Inc.</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>SCoV-2 Ag Detect Rapid Test</td>
+					<td>InBios International, Inc.</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>Clip COVID Rapid Antigen Test</td>
+					<td>Luminostics, Inc.</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>LumiraDx SARS-CoV-2 Ag Test</td>
+					<td>LumiraDx UK Ltd.</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>MaximBio ClearDetect COVID-19 Antigen Home Test</td>
+					<td>Maxim Biomedical, Inc.</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>Nano-Check COVID-19 Antigen Test</td>
+					<td>Nano-Ditech Corp.</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>InteliSwab COVID-19 Rapid Test Rx</td>
+					<td>OraSure Technologies, Inc.</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>InteliSwab COVID-19 Rapid Test</td>
+					<td>OraSure Technologies, Inc.</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>InteliSwab COVID-19 Rapid Test Pro</td>
+					<td>OraSure Technologies, Inc.</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>VITROS Immunodiagnostic Products SARS-CoV-2 Antigen Reagent Pack</td>
+					<td>Ortho Clinical Diagnostics, Inc.</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>INDICAID COVID-19 Rapid Antigen Test</td>
+					<td>PHASE Scientific International, Ltd.</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>Status COVID-19/Flu A&B</td>
+					<td>Princeton BioMeditech Corp.</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>QIAreach SARS-CoV-2 Antigen</td>
+					<td>QIAGEN GmbH</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>Omnia SARS-CoV-2 Antigen Test</td>
+					<td>Qorvo Biotechnologies, LLC.</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>Simoa SARS-CoV-2 N Protein Antigen Test</td>
+					<td>Quanterix Corporation</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>QuickVue SARS Antigen Test</td>
+					<td>Quidel Corporation</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>QuickVue At-Home OTC COVID-19 Test</td>
+					<td>Quidel Corporation</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>Sofia SARS Antigen FIA</td>
+					<td>Quidel Corporation</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>QuickVue At-Home COVID-19 Test</td>
+					<td>Quidel Corporation</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>Sofia 2 Flu + SARS Antigen FIA</td>
+					<td>Quidel Corporation</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>Sienna-Clarity COVID-19 Antigen Rapid Test Cassette</td>
+					<td>Salofa Oy</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>COVID-19 At-Home Test</td>
+					<td>SD Biosensor, Inc.</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>CLINITEST Rapid COVID-19 Antigen Self-Test</td>
+					<td>Siemens Healthineers</td>
+					<td>US</td>
+				</tr>
+				<tr>
+					<td>SPERA COVID-19 Ag Test</td>
+					<td>Xtrava Health</td>
+					<td>US</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<script>
+			$(document).ready(function() {
+				$("#keyword").on("keyup", function() {
+					var value = $(this).val().toLowerCase();
+					$("#RAT tr").filter(function() {
+						$(this).toggle($(this).text()
+						.toLowerCase().indexOf(value) > -1)
+					});
+				});
+			});
+		</script>
+</center>
+
+</body>
+
+</html>
+
