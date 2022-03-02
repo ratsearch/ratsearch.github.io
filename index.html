@@ -12,10 +12,14 @@
 	  gtag('config', 'G-ERH8JHD38X');
 	</script>
 	
+	<!-- Import jQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	
+	<!-- Import Google Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK&display=swap" rel="stylesheet">
+	
 	<style>
 		body {
 			font-family: sans-serif,'Noto Sans HK';
@@ -23,16 +27,32 @@
 		table {
 			border-collapse: collapse;
 		}
-		
 		td,
 		th {
 			border: 1px solid #dddddd;
 			text-align: left;
-			padding: 8px;
+			padding: 6px;
 		}
-		
 		h1 {
 			color: red;
+		}
+		input[type=text]{
+			font-size: 24px;
+			font-color: #333333;
+			width: 50%;
+			background-color: white;
+			background-image: url('https://www.w3schools.com/css/searchicon.png');
+			background-position: 10px;
+			background-repeat: no-repeat;
+ 			padding-left: 40px;
+		}
+		@media screen and (max-width: 600px) {
+			input[type=text]{
+				width:80%;
+			}
+			#results {
+				font-size: 16px;
+			}
 		}
 	</style>
 	<title>快速抗原測試包 | 整合名單搜尋工具</title>
@@ -43,42 +63,41 @@
 		<h1>快速抗原測試包 整合名單搜尋工具</h1>
 		(最後更新日期: 2022-03-01)
 		<br>
-		<p><i>聲明：此搜尋器並非由任何官方機構開發，資料來源是以下列五份官方名單整合而成，所有資料僅供參考，如有任何缺漏本網並不負責，請以官方發出資料為準。</i></p>
+		<p><b>聲明：此搜尋器並非由任何官方機構開發，資料來源是以下列五份官方名單整合而成，所有資料僅供參考，如有任何缺漏本網並不負責，請以官方發出資料為準。</b></p>
 		<p>資料來源:</p>
-		<table border="1">
+		<table id="source" border="1">
 			<tbody>
 				<tr>
 					<td>HK (A)</td>
 					<td><a href="https://www.mdd.gov.hk/tc/whats-new/rapid-antigen-tests-covid-19/index.html">香港特別行政區衞生署醫療儀器行政管理制度下已表列的2019冠狀病毒病快速抗原測試</a></td>
-			</tr>
-			<tr>
-				<td>HK (B)</td>
-				<td><a href="https://www.coronavirus.gov.hk/rat/chi/kit_comparison.html">香港特別行政區政府向指定群組免費派發的快速抗原測試包</a></td>
-			</tr>
-			<tr>
-				<td>CN</td>
-				<td><a href="https://www.nmpa.gov.cn/directory/web/nmpa/images/1643248396260012059.docx">國家藥品監督管理局批准的新冠疫情防控醫療器械產品名單</a></td>
-			</tr>
-			<tr>
-				<td>EU</td>
-				<td><a href="https://ec.europa.eu/health/system/files/2022-02/covid-19_rat_common-list_en.pdf">歐盟2019冠狀病毒病快速抗原測試通用名單</a>（只備英文版本）</td>
-			</tr>
-			<tr>
-				<td>US</td>
-				<td><a href="https://www.fda.gov/medical-devices/coronavirus-disease-2019-covid-19-emergency-use-authorizations-medical-devices/in-vitro-diagnostics-euas-antigen-diagnostic-tests-sars-cov-2#IndividualEUAs">美國食品及藥物管理局發出有關認可緊急使用的抗原測試劑名單</a>（只備英文版本）</td>
-			</tr>
+				</tr>
+				<tr>
+					<td>HK (B)</td>
+					<td><a href="https://www.coronavirus.gov.hk/rat/chi/kit_comparison.html">香港特別行政區政府向指定群組免費派發的快速抗原測試包</a></td>
+				</tr>
+				<tr>
+					<td>CN</td>
+					<td><a href="https://www.nmpa.gov.cn/directory/web/nmpa/images/1643248396260012059.docx">國家藥品監督管理局批准的新冠疫情防控醫療器械產品名單</a></td>
+				</tr>
+				<tr>
+					<td>EU</td>
+					<td><a href="https://ec.europa.eu/health/system/files/2022-02/covid-19_rat_common-list_en.pdf">歐盟2019冠狀病毒病快速抗原測試通用名單</a>（只備英文版本）</td>
+				</tr>
+				<tr>
+					<td>US</td>
+					<td><a href="https://www.fda.gov/medical-devices/coronavirus-disease-2019-covid-19-emergency-use-authorizations-medical-devices/in-vitro-diagnostics-euas-antigen-diagnostic-tests-sars-cov-2#IndividualEUAs">美國食品及藥物管理局發出有關認可緊急使用的抗原測試劑名單</a>（只備英文版本）</td>
+				</tr>
 			</tbody>
 		</table>
-		<br>
-		<br>
-		<b style="font-size:2rem">請輸入產品／製造商名稱：
-		<input id="keyword" type="text" size="20"
-				style="font-size:2rem" placeholder="關鍵字">
-		</b>
-		<br>
-		<br>
-		<br>
-		<table>
+		
+		<div style="background-color: #e0e0e0; padding: 12px; margin: 12px">
+			<b style="font-size: 24px">請輸入產品／製造商名稱：
+			<input id="keyword" type="text"
+					placeholder="關鍵字">
+			</b>
+		</div>
+		
+		<table id="results">
 			<tr>
 				<th><b>產品名稱</b></th>
 				<th><b>製造商</b></th>
