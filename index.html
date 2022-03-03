@@ -30,53 +30,106 @@
 		@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap');
 		body {
 			font-family: sans-serif,'Noto Sans TC';
+			padding: 0px 32px 48px 32px;
 		}
+        ::-webkit-input-placeholder {
+            color: #C2C2C2;
+        }
 		table {
 			table-layout: auto;
 			border-collapse: collapse;
 		}
+        tr {
+            border-bottom: 1px solid #dddddd;
+            border-top: 1px solid #dddddd;
+            border-collapse: collapse;
+        }
+        table#source {
+            border-collapse: collapse;
+            margin-bottom: 16px;
+        }
+        table#source td {
+            border: 1px solid teal;
+            padding: 8px 16px;
+        }
+        table#source a {
+            text-decoration: none;
+        }
 		td,
 		th {
-			border: 1px solid #dddddd;
 			text-align: left;
-			padding: 5px;
+			padding: 12px 8px;
 		}
+        table#results tbody#RAT tr td:nth-child(n+2) {
+            color: grey;
+        }
+        #search-input {
+            background-color: #CBEFEF;
+            padding: 16px;
+            margin: 12px 0 0 0;
+            border-radius: 4px 4px 0 0 ;
+        }
 		h1 {
-			color: red;
+			color: teal;
 		}
 		input[type=text]{
 			font-size: 24px;
-			font-color: #333333;
+			color: #333333;
 			width: 50%;
 			background-color: white;
 			background-image: url('https://www.w3schools.com/css/searchicon.png');
 			background-position: 10px;
 			background-repeat: no-repeat;
- 			padding-left: 40px;
+			padding: 8px 8px 8px 40px;
+ 			border-radius: 8px;
+			border: 2px solid teal;
 		}
 		
 		@media screen and (max-width: 600px) {
 			body {
+                padding: 0px 0px 32px 0px;
 				font-size: 16px;
 			}
+            body h1:first-child {
+                font-size: 1.6em;
+                padding: 0 16px;
+                max-width: 340px;
+            
+            }
+            #search-input span {
+                display: none;
+            }
 			input[type=text] {
 				width:80%;
+                padding: 12px 8px 12px 40px;
 			}
+            table#source td {
+                font-size: 13px;
+                padding: 4px 8px;
+            }
 			#results {
 				font-size: 16px;
+                line-height: 1.3em;
 			}
-		}
+            #results tr.label {
+                font-size: 12px !important;
+            }
+            #note>p:first-child {
+                font-size: 13px;
+                padding: 0 8px;
+            }
+        
 	</style>
-	<title>快速抗原測試包 | 整合名單搜尋工具</title>
+	<title>官方建議「快速抗原測試包」｜整合名單搜尋</title>
 </head>
 
 <body>
 	<center>
-		<h1>快速抗原測試包 整合名單搜尋工具</h1>
-		(最後更新日期: 2022-03-03)
-		<br>
-		<p><b>聲明：此搜尋器並非由任何官方機構開發，資料來源是以下列五份官方名單整合而成，所有資料僅供參考，如有任何缺漏本網並不負責，請以官方發出資料為準。</b></p>
-		資料來源:
+		<h1 style="margin-bottom: 4px">官方建議「快速抗原測試包」整合名單搜尋</h1>
+        <span style="font-size: 13px;">最後更新: 2022-03-03</span>
+	    <div id="note" style="padding: 0px;">
+            <p style="line-height: 1.6em;"><b>聲明：此搜尋器並非由任何官方機構開發，資料來源是以下列五份官方名單整合而成，所有資料僅供參考，如有任何缺漏本網並不負責，請以官方發出資料為準。</b><br/>
+            更多有關快速抗原測試包的資訊，可參考<a href="https://www.coronavirus.gov.hk/rat/chi/rat.html" target="_blank" onclick="captureOutboundLink('https://www.coronavirus.gov.hk/rat/chi/rat.html'); return false;">香港特區政府相關網頁</a> </p>
 		<table id="source" border="1">
 			<tbody>
 				<tr>
@@ -101,25 +154,25 @@
 				</tr>
 			</tbody>
 		</table>
-		*** 更多有關快速抗原測試包的資訊，可參考香港特區政府相關網頁: <a href="https://www.coronavirus.gov.hk/rat/chi/rat.html" target="_blank" onclick="captureOutboundLink('https://www.coronavirus.gov.hk/rat/chi/rat.html'); return false;">按此</a> ***
-		<br><br>
 		
-		<div style="background-color: #e0e0e0; padding: 12px; margin: 12px 0px 12px 0px">
-			<b style="font-size: 24px">請輸入產品／製造商名稱：
+		</div>
+
+		<div id="search-input">
+			<b style="font-size: 24px;"><span style="padding-right: 8px;">搜尋</span>
 			<input id="keyword" type="text"
-					placeholder="關鍵字">
+					placeholder="輸入產品／製造商名稱" autofocus>
 			</b>
 		</div>
 		
 		<table id="results" style="width: 100%; table-layout: fixed; overflow-wrap: break-word">
 			<col class="productName" style="width: 50%;">
 			<col class="manufName" style="width: 40%;">
-			<col class="listName" style="width: 10%;">
+			<col class="listName" style="width: 10%; min-width: 70px;">
 			
-			<tr>
+			<tr class="label" style="background-color: #EDEDED;">
 				<th><b>產品名稱</b></th>
 				<th><b>製造商</b></th>
-				<th><b>名單</b></th>
+				<th><b>認可機構</b></th>
 			</tr>
 			<tbody id="RAT">
 				<tr>
@@ -1804,7 +1857,7 @@
 				</tr>
 			</tbody>
 		</table>
-
+      
 		<script>
 			$(document).ready(function() {
 				$("#keyword").on("keyup", function() {
@@ -1821,4 +1874,3 @@
 </body>
 
 </html>
-
